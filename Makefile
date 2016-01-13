@@ -1,9 +1,14 @@
+DIR := $(abspath $(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
+
 .PHONY: all
 
 all:
-	@echo "Building ejabberd ..."
-	@echo "MAKEFILE_LIST: ${MAKEFILE_LIST}"
-	cd src ; ./configure ; $(MAKE)
+	@echo "Building ejabberd in $(DIR) ..."
+	-rm -rf $(DIR)/ebin
+	-rm -rf $(DIR)/priv
+	cd src ; ./configure --prefix="$(DIR)" ; $(MAKE) all ; $(MAKE) install
+	mv $(DIR)/lib/ejabberd/ebin $(DIR)/ebin
+	mv $(DIR)/lib/ejabberd/priv $(DIR)/priv
 	@echo "ejabberd build done."
 
 clean:

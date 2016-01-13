@@ -5,7 +5,6 @@
   {vsn, "2.1.11"},
   {modules, [acl,
 	     adhoc,
-	     configure,
 	     cyrsasl_anonymous,
 	     cyrsasl,
 	     cyrsasl_digest,
