@@ -6,7 +6,7 @@ all:
 	@echo "Building ejabberd in $(DIR) ..."
 	-rm -rf $(DIR)/ebin
 	-rm -rf $(DIR)/priv
-	cd src ; ./configure --prefix="$(DIR)" ; $(MAKE) all ; $(MAKE) install
+	cd src ; ./configure --prefix="$(DIR)" --enable-odbc ; $(MAKE) all ; $(MAKE) install
 	mv $(DIR)/lib/ejabberd/ebin $(DIR)/ebin
 	mv $(DIR)/lib/ejabberd/priv $(DIR)/priv
 	@echo "ejabberd build done."
