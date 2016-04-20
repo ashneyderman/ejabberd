@@ -204,7 +204,7 @@ open_socket(init, StateData) ->
 				StateData#state.server,
 				StateData#state.new,
 				StateData#state.verify}]),
-    AddrList = case idna:domain_utf8_to_ascii(StateData#state.server) of
+    AddrList = case ejabberd_idna:domain_utf8_to_ascii(StateData#state.server) of
 		   false -> [];
 		   ASCIIAddr ->
 		       get_addr_port(ASCIIAddr)

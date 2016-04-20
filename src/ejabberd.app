@@ -74,7 +74,7 @@
             gen_pubsub_node,
             gen_pubsub_nodetree,
             iconv,
-            idna,
+            ejabberd_idna,
             jd2ejd,
             jlib,
             mod_adhoc,
