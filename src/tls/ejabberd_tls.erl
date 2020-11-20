@@ -24,7 +24,7 @@
 %%%
 %%%----------------------------------------------------------------------
 
--module(tls).
+-module(ejabberd_tls).
 -author('alexey@process-one.net').
 
 -behaviour(gen_server).
@@ -154,7 +154,7 @@ tcp_to_tls(TCPSocket, Options) ->
 	false ->
 	    {error, no_certfile}
     end.
-    
+
 tls_to_tcp(#tlssock{tcpsock = TCPSocket, tlsport = Port}) ->
     port_close(Port),
     TCPSocket.
@@ -282,7 +282,7 @@ test() ->
 			 "./ssl.pem" ++ [0]),
     ?PRINT("port_control: ~p~n", [PCRes]),
     {ok, ListenSocket} = gen_tcp:listen(1234, [binary,
-					       {packet, 0}, 
+					       {packet, 0},
 					       {active, true},
 					       {reuseaddr, true},
 					       {nodelay, true}]),
@@ -316,7 +316,7 @@ loop(Port, Socket) ->
 		<<1, EOError/binary>> ->
 		    ?PRINT("GET_ENCRYPTED_OUTPUT error: ~p~n", [binary_to_list(EOError)])
 	    end,
-		    
+
 
 	    loop(Port, Socket);
 	Msg ->

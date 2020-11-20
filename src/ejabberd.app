@@ -163,7 +163,7 @@
             stringprep,
             stringprep_sup,
             stun_codec,
-            tls,
+            ejabberd_tls,
             translate,
             treap,
             win32_dns,
